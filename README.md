@@ -24,7 +24,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 - Create an RG in Azure with two VMs in it, one running Windows and the other running Linux.
 - Observe Network Topology within Azure.
 - Download Wireshark.
-- Observe and Send Traffic usin Wireshark and Command Prompt.
+- Observe and Send Traffic using Wireshark and Command Prompt.
 
 <h2>Actions and Observations</h2>
 
@@ -48,7 +48,7 @@ Once your RG is created with the two VMs deployed, navigate to the "Network Watc
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Next, log into your Windows machine in Remote Desktop. Navigate to wireshark.org in the Windows VM, and click "Download Now". Click on the Windows Installer option and wait for the file to download, then install the program. Click through all of the prompts. Once Wireshark is finished installing, open the program. 
 </p>
 <br />
 
@@ -56,6 +56,53 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Once you have the program open, click the blue shark fin and filter for ICMP traffic only, then open the Command Prompt and ping the Ubuntu Machine's private IP (ping [IP] -t), notice the requests and replies.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Let's experiment a little. Go back to Azure and navigate to the "Networking" section of your Ubuntu Machine. Click on "Add Inbound Port Rule", then change the Protocol to ICMP, action to Deny, and Priority to 200. Click "Add". Go back to your Windows VM and observe the changes. Now enable the traffic from ICMP again. Notice the connection is back. Stop the ping with Ctrl + C.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Back in Wireshark, go ahead and refresh with the green shark fin, click continue without saving. Now, we're going to use ssh, so filter traffic in Wireshark by ssh. Open PowerShell on VM1 as an administrator, then type "ssh [VM2's Username]@" then VM2's private IP address. Then type yes, then type the password for VM2 (you won't be able to see the password, just trust that you're typing the right thing). Notice that just logging in has spammed some traffic in Wireshark. Feel free to play around with some commands, when you're done, type "exit" in PowerShell then press enter.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Now go back to Wireshark and refresh it again. This time filter for DHCP traffic. Now, in PowerShell, attempt to give your Windows VM a new IP address using ipconfig /renew. Observe the DHCP traffic appearing in Wireshark.
+
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Next, refresh Wireshark and filter for DNS. Using PowerShell, type "nslookup www.google.com". Observe the DNS traffic.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+
+</p>
+<br />
+
+
+<p>
+Once you have the program open, click the blue shark fin and filter for ICMP traffic only, then open the Command Prompt and ping the Ubuntu Machine's private IP (ping [IP] -t), notice the requests and replies.
 </p>
 <br />
