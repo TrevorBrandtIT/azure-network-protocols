@@ -97,12 +97,12 @@ Next, refresh Wireshark and filter for DNS. Using PowerShell, type "nslookup www
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-
+Refresh Wireshark once more and filter by tcp.port==3389. This is RDP traffic. Notice that it is a constant stream of information. This is because RDP acts as a "livestream" between two computers.
 </p>
 <br />
 
 
 <p>
-Once you have the program open, click the blue shark fin and filter for ICMP traffic only, then open the Command Prompt and ping the Ubuntu Machine's private IP (ping [IP] -t), notice the requests and replies.
+That's it for this one. If you'd like, continue playing with different protocols and port numbers, maybe some commands in PowerShell. When you're done, make sure to delete the RGs in Azure so you don't burn all your free credit. I'll see you soon!
 </p>
 <br />
