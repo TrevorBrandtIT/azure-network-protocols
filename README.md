@@ -32,7 +32,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 <img src="https://imgur.com/By4NMzs.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Assuming you've done dome of my other tutorials, navigate to your Azure account and create a Resource Group with two VMs in it. For the purposes of this lab, we'll make one VM a Windows machine and the other a Ubuntu Machine. Base them both in the same region, I'll be using US West 3. I'll also be making them both 2vcpu machines. Make sure you use a password for the Ubuntu machine, not an SSH Key. Also, make sure to put both machines on the RG's vnet.
+Assuming you've done some of my other tutorials, navigate to your Azure account and create a Resource Group with two VMs in it. For the purposes of this lab, we'll make one VM a Windows machine and the other a Ubuntu Machine. Base them both in the same region, I'll be using US West 3. I'll also be making them both 2vcpu machines. Make sure you use a password for the Ubuntu machine, not an SSH Key. Also, make sure to put both machines on the RG's vnet.
 </p>
 <br />
 
